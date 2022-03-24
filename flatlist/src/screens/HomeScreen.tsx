@@ -1,34 +1,41 @@
 import React from 'react'
-import { View, Text, SafeAreaView, FlatList } from 'react-native'
+import { View, Text, SafeAreaView, FlatList, TouchableOpacity } from 'react-native'
 import ListItems from '../components/ListItems'
+import { useNavigation } from '@react-navigation/native';
+import { UseNavigationAppStack } from '../types';
+
+
 
 const HomeScreen = () => {
+
+
 
     const productos = [
 
         {
-            nombre: 'Vestido de noche',
+
+            name: 'Vestido de noche',
             color: 'Rojo',
             id: '001',
 
         },
 
         {
-            nombre: 'Vestido corto casual',
+            name: 'Vestido corto casual',
             color: 'Verde',
             id: '002',
 
         },
 
         {
-            nombre: 'Vestido de playa',
+            name: 'Vestido de playa',
             color: 'Azul',
             id: '003',
 
         },
 
         {
-            nombre: 'Vestido patinadora',
+            name: 'Vestido patinadora',
             color: 'Rosa',
             id: '004',
 
@@ -43,8 +50,10 @@ const HomeScreen = () => {
                 keyExtractor={(item) => item.id}
                 renderItem={({ item, index }) => <ListItems item={item} />}
                 ItemSeparatorComponent={() => <View style={{ marginVertical: 10, borderColor: '#000', borderWidth: 1 }} />}
-                ListHeaderComponent={() => <Text style={{ fontWeight: 'bold', fontSize: 18, marginBottom: 10, }}> Mis productos </Text>}>
-            </FlatList>
+                ListHeaderComponent={() => <Text style={{ fontWeight: 'bold', fontSize: 18, marginBottom: 10, }}> Mis productos </Text>}
+            /> 
+
+            
 
         </SafeAreaView>
 
@@ -52,5 +61,4 @@ const HomeScreen = () => {
     )
 
 }
-
-export default HomeScreen
+export default HomeScreen;
